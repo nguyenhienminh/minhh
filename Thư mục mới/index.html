@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Câu tỏ tình lãng mạn</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(white 30%, pink 70%);
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .star {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: aquamarine;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out alternate;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.2; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.5); }
+    }
+
+    .text-layer {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff3399;
+      animation: slideDown 10s linear infinite;
+    }
+
+    @keyframes slideDown {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Tạo sao lung linh -->
+<script>
+  for (let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.top = Math.random() * window.innerHeight + 'px';
+    star.style.left = Math.random() * window.innerWidth + 'px';
+    star.style.animationDelay = Math.random() * 2 + 's';
+    document.body.appendChild(star);
+  }
+</script>
+
+<!-- 15 câu tỏ tình chạy thành 7 lớp -->
+<script>
+  const cauToTinh = [
+    "1. Em không phải ánh mặt trời, nhưng lại là lý do để mỗi ngày của anh bừng sáng.",
+    "2. Thế giới này có hàng triệu người, nhưng trái tim anh chỉ có một chỗ dành cho em.",
+    "3. Gặp em là điều bất ngờ, yêu em là điều tự nhiên, và nhớ em là điều không thể tránh khỏi.",
+    "4. Anh chẳng cần gì nhiều, chỉ cần mỗi sáng thức dậy, tin nhắn đầu tiên là từ em.",
+    "5. Yêu em không phải là lựa chọn, đó là điều xảy ra từ khoảnh khắc đầu tiên anh thấy nụ cười của em.",
+    "6. Nếu em là giấc mơ, anh ước mình không bao giờ tỉnh dậy.",
+    "7. Anh không hứa mang cả thế giới cho em, nhưng anh hứa em sẽ là cả thế giới của anh.",
+    
+  ];
+
+  for (let i = 0; i < 7; i++) {
+    const text = document.createElement('div');
+    text.className = 'text-layer';
+    text.style.top = (i * 14) + 'vh';
+    text.style.animationDelay = (i * 1.5) + 's';
+    text.innerText = cauToTinh[i * 2] + " | " + cauToTinh[i * 2 + 1];
+    document.body.appendChild(text);
+  }
+</script>
+
+</body>
+</html>
